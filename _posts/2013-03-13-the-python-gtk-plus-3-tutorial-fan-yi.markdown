@@ -3,7 +3,7 @@ layout: post
 title: "The Python GTK+3 Tutorial 翻译"
 date: 2013-03-13 22:43
 comments: true
-categories: Python-GTK+3-Tutorial Python 翻译
+categories: Python 
 ---
 > 这段时间写了两个 Ubuntu 的 APP 都是用 Python GTK+3 走了不少弯路，后来还是靠这个 Tutorial 真正帮了忙。 原文在此: [The Python GTK+3 Tutorial](http://python-gtk-3-tutorial.readthedocs.org/cn/latest/index.html)
 
