@@ -15,8 +15,11 @@ comments: no
 ###联系方式：
 
 个人邮箱: [jingquanqi@gmail.com](mailto:jingquanqi@gmail.com)
+
 新浪微博: [@荆全齐](http://weibo.com/ jingqq5210)
+
 Google+: [+荆全齐](https://plus.google.com/+荆全齐42)
+
 Github : [ dodocat](https://github.com/dodocat)
 
 ---
@@ -25,18 +28,7 @@ Github : [ dodocat](https://github.com/dodocat)
 
 ---
 <!-- Place this tag where you want the widget to render. -->
-<div class="g-person" data-width="250" data-href="//plus.google.com/u/0/100847701096332465304" data-rel="author"></div>
-
-<!-- Place this tag after the last widget tag. -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-<!-- Place this tag where you want the widget to render. -->
-<div class="g-page" data-width="250" data-href="//plus.google.com/u/0/103586697261491207350" data-rel="publisher"></div>
+<div class="g-person" data-width="250" data-href="//plus.google.com/+荆全齐42" data-rel="author"></div>
 
 <!-- Place this tag after the last widget tag. -->
 <script type="text/javascript">
