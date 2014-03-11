@@ -4,3 +4,4 @@ pygments: true
 permalink: /:year/:month/:day/:title
 author: Cindy
 
+baseurl: /herring-cove
