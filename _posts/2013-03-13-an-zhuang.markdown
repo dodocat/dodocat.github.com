@@ -1,0 +1,9 @@
+---
+layout: post
+title: "安装"
+date: 2013-03-13 23:14
+comments: true
+categories: Python-GTK+3-Tutorial Python 翻译
+---
+> 这一章 ["原文在这里"](http://python-gtk-3-tutorial.readthedocs.org/en/latest/install.html) 
+> 偷懒不打算翻译了.
