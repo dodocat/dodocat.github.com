@@ -4,25 +4,24 @@ layout: page
 comments: no
 ---
 
-爱折腾一族，不安于风平浪静的生活，没困难也要创造困难。     
-人生苦短，最爱蟒蛇；封闭的天空死气沉沉，开源的世界百花齐放。     
-喜欢干净整洁的代码，讨厌喋喋不休的梦想。     
-我常说：     
-Shut up and then make it.     
+摘下夜空中最亮的星
+
+不再停下脚步
+
+为了为所有的故事书写一个结局
 
 ---
 
-###联系方式：        
+###联系方式：
 
-个人邮箱: [suprsvn@gmail.com](mailto:suprsvn@gmail.com)     
-新浪微博: [@菊花儿绽放](http://weibo.com/216481678)     
-腾讯微博: [@suprsvn](http://t.qq.com/suprsvn)     
-Google+: [+supr](https://plus.google.com/u/0/100847701096332465304)     
-Github : [suprsvn](https://github.com/suprsvn)        
+个人邮箱: [jingquanqi@gmail.com](mailto:jingquanqi@gmail.com)
+新浪微博: [@荆全齐](http://weibo.com/ jingqq5210)
+Google+: [+荆全齐](https://plus.google.com/+荆全齐42)
+Github : [ dodocat](https://github.com/dodocat)
 
 ---
 
-###欢迎到__GOOGLE+__上关注__我__和__我的主页__     
+###欢迎到__GOOGLE+__上关注__我__和__我的主页__
 
 ---
 <!-- Place this tag where you want the widget to render. -->
