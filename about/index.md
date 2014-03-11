@@ -28,7 +28,7 @@ Github : [ dodocat](https://github.com/dodocat)
 
 ---
 <!-- Place this tag where you want the widget to render. -->
-<div class="g-person" data-width="250" data-href="//plus.google.com/+荆全齐42" data-rel="author"></div>
+<div class="g-person" data-width="250" data-href="//plus.google.com/u/101733574037044507534" data-rel="author"></div>
 
 <!-- Place this tag after the last widget tag. -->
 <script type="text/javascript">
