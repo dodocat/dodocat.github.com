@@ -16,6 +16,12 @@
       {{ content }}
 
       <footer>
+        <!-- google profile refer -->
+        {% if site.google_plus.id and site.google_plus.enable_search_refer == true %}
+            <p>
+                Author by <a href="https://plus.google.com/u/0/{{ site.google_plus.id }}/?rel=author">{{site.data.brume.author}}</a>
+            </p>
+        {% endif %}
         <p>
           This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.en_US">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
         </p>
