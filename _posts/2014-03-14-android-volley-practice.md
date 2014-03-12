@@ -8,7 +8,7 @@ tags: android volley
 ---
 
 # Volley
-
+> 这是一篇在团队内部分享演示的讲稿的整理.
 
 > Volley is a library that makes networking for Android apps easier and most importantly, faster.
 
