@@ -7,3 +7,8 @@ baseurl:
 
 redcarpet: 
     extensions: [strikethrough, tables]
+
+duoshuo : 
+    short_name : quanqi
+    enable : true 
+
