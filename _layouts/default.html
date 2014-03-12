@@ -1,108 +1,34 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="{{ site.author }}" />
-    <title>{{ page.title }} | {{ site.author }}</title>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link href="/feed/" rel="alternate" title="{{ site.author }}" type="application/atom+xml" />
-    <link rel="stylesheet" href="/media/css/style.css">
-    <link rel="stylesheet" href="/media/css/highlight.css">
-    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+    {% include head.html %}
   </head>
-  <script type="text/javascript">
-    function setTimeSpan(){
-    	var date = new Date();
-    	timeSpan.innerText=date.format('yyyy-MM-dd hh:mm:ss');
-    }
-    
-    Date.prototype.format = function(format)
-		{
-    var o =
-    	{
-    	    "M+" : this.getMonth()+1, //month
-    	    "d+" : this.getDate(),    //day
-    	    "h+" : this.getHours(),   //hour
-    	    "m+" : this.getMinutes(), //minute
-    	    "s+" : this.getSeconds(), //second
-    	    "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
-    	    "S" : this.getMilliseconds() //millisecond
-    	}
-    	if(/(y+)/.test(format))
-    	format=format.replace(RegExp.$1,(this.getFullYear()+"").substr(4 - RegExp.$1.length));
-    	for(var k in o)
-    	if(new RegExp("("+ k +")").test(format))
-    	format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
-    	return format;
-		}
-  </script>
-  <body onLoad="setInterval(setTimeSpan,1000);">
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>{{ page.title }}</h1>
-		<!-- Place this tag where you want the +1 button to render. -->
-<div class="g-plusone"></div>
+  <body>
+    <div class="container azul">
+      <header class="top row gutters{% if page.title == "Home" %} fadeInLeft animated{% endif %}">
+        <div class="col span_2 center">
+          <a href="{{ site.url }}" id="logo" title="{{ site.data.brume.name }}"
+             style="background-image: url({{site.baseurl}}/public/images/logo.png);"></a>
+        </div>
+        {% include navigation.html %}
+      </header>
 
-<!-- Place this tag after the last +1 button tag. -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script><!-- Place this tag where you want the share button to render. -->
-<div class="g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>
+      {{ content }}
 
-<!-- Place this tag after the last share tag. -->
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-        </header>
-        <nav>
-        <span><a title="home page" class="" href="/">Home</a></span>
-        <span><a title="about" class="" href="/about/">About</a></span>
-        <span><a title="guestbook" class="" href="/guestbook/">Guestbook</a></span>
-        <span><a title="categories" class="" href="/categories/">Categories</a></span>
-        <span><a title="tags" class="" href="/tags/">Tags</a></span>
-        <span><a title="links" class="" href="/links/">Links</a></span>
-        <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
-		<span><a href="https://plus.google.com/103586697261491207350" rel="publisher">Google+</a></span>
-        </nav>
-        <article class="content">
-        {{ content }}
-        </article>
-      </div>
-
-    <footer>
-        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2012 - {{site.time | date:"%Y"}} by <a href="/about/">suprsvn</a> | <script language="javascript" type="text/javascript" src="http://js.users.51.la/16434669.js"></script>
-<noscript><a href="http://www.51.la/?16434669" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16434669.asp" style="border:none" /></a></noscript> | <span class="label label-info" id="timeSpan"></span></small></p>
-    </footer>
-
+      <footer>
+        <p>
+          This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.en_US">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+        </p>
+      </footer>
     </div>
 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-45524276-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    <!-- scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{{site.baseurl}}/public/js/jquery.fitvids.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("article").fitVids();
+      });
     </script>
-
-    <!-- Baidu Button BEGIN -->
-		<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=4&amp;pos=right&amp;uid=541841" ></script>
-		<script type="text/javascript" id="bdshell_js"></script>
-		<script type="text/javascript">
-		var bds_config={"bdTop":170};
-		document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
-		</script>
-		<!-- Baidu Button END -->
   </body>
 </html>

@@ -1,7 +1,9 @@
-name: Your New Jekyll Site
 markdown: redcarpet
 pygments: true
 permalink: /:year/:month/:day/:title
-author: Cindy
 
-baseurl: /herring-cove
+url: http://blog.quanqi.org/
+baseurl:
+
+redcarpet:
+extensions: [strikethrough, tables]
