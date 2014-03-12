@@ -3,7 +3,7 @@ layout: post
 title: "生命边缘"
 date: 2013-07-22 01:34
 comments: true
-categories: 
+categories: 旅行 
 ---
 ![Ellie's view of beach on vega](/image/Ellies-vision-600x960.jpg)
 

@@ -3,7 +3,7 @@ layout: post
 title: "具有状态栏指示 (indicator) 自动重连 ssh tunnel 辅助工具"
 date: 2013-03-28 04:14
 comments: true
-categories: Python 作品 ubuntu 科学上网
+categories: Python 
 ---
 
 ## bingo

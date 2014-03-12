@@ -3,7 +3,7 @@ layout: post
 title: "Getting Started"
 date: 2013-03-14 00:48
 comments: true
-categories: Python-GTK+3-Tutorial Python 翻译
+categories: Python
 ---
 
 ## 一个简单的例子

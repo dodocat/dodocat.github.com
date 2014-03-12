@@ -3,7 +3,7 @@ layout: post
 title: "Efficient String Concatenation in Python"
 date: 2013-07-08 12:48
 comments: true
-categories: 
+categories: Python 
 ---
 
 # Python 中的高效字符串连接

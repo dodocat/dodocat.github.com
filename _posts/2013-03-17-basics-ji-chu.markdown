@@ -3,7 +3,7 @@ layout: post
 title: "Basics 基础"
 date: 2013-03-17 22:27
 comments: true
-categories: Python Python-GTK+3-Tutorial 翻译 
+categories: Python 
 ---
 
 > [Python GTK+3 教程翻译](/blog/categories/python-gtk-plus-3-tutorial/)
