@@ -7,4 +7,12 @@ layout: default
   <h2>{{ page.title }}</h2>
 
   {{ content }}
+
+  {% if site.duoshuo.short_name and page.comments == true %}
+  <section>
+    <h1>Comments</h1>
+    <div id="comments" aria-live="polite">{% include duoshuo.html %}</div>
+  </section>
+  {% endif %}
+
 </article>
