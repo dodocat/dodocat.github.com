@@ -5,10 +5,13 @@ permalink: /:year/:month/:day/:title
 url: http://blog.quanqi.org
 baseurl:
 
-redcarpet: 
+redcarpet:
     extensions: [strikethrough, tables]
 
-duoshuo : 
+duoshuo :
     short_name : quanqi
-    enable : true 
+    enable : true
 
+google_plus :
+    id : 101733574037044507534
+    enable_search_refer : true
