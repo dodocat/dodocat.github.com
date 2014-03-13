@@ -2,7 +2,7 @@ markdown: redcarpet
 pygments: true
 permalink: /:year/:month/:day/:title
 
-url: http://blog.quanqi.org
+url: http://quanqi.org
 baseurl:
 
 redcarpet:
