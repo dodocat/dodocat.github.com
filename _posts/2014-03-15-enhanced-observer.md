@@ -1,6 +1,8 @@
 ---
+layout : post
 title : 观察者模式中使用 JAVA 泛型
 daate : 2014-04-15 11:36
+comments : true
 categories : Java
 ---
 
