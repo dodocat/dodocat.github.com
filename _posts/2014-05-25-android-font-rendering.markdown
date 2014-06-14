@@ -82,5 +82,28 @@ TextView 和 android.text 都是 Paint 和 Canvas 的上层实现.
 直到 Android 3.0, Paint 和 Canvas 是直接在 Skia 上实现的.
 Skia 是一个渲染库提供很棒的 FreeType(开源...) 的抽象.
 
-![Android software text rendering](/image/android_software_text_rendering.png)
+![Android software text rendering](./)
+
+
+As of Android 4.4 things are a little bit more complicated. Both Paint and Canvas use an internal JNI API called TextLayoutCache that handles complex text layouts (CTL). This API relies on Harfbuzz, an Open Source text shaping engine. The input of TextLayoutCache is a font and a Java UTF-16 string and its output is a list of glyph identifiers with their x/y positions.
+
+Android 4.4 的情况复杂一点. 
+Paint 和 Canvas 都是使用一个 叫做`TextLayoutCache` 的内部 JNI API,
+用于处理浮渣文本布局 (CTL). 此 API 依赖 Harfbuzz, 一个开源 text shaping 引擎. 
+文本布局缓存 (TextLayoutCache) 的输入是一个字体和一个 Java UTF-16 字符串,
+输出是一个字形及其 x/y 坐标的序列.
+
+
+TextLayoutCache 是良好地支持如阿拉伯语 希伯来语 泰语等非拉丁语的关键.
+我不打算解释 TextLayoutCache 和 Harfbuzz 如何运行的. 
+但是如果你想, 你也应该, 在你的应用中正确地支持非拉丁语环境, 
+我强烈你建议学习一下 CTL. 
+在有关使用 OpenGL 渲染文本的的教程中极少有讨论这个问题的.
+绘制文本比简单地从左到右依次放置字形复杂得多.
+一些语言, 比如阿拉伯语, 从右到左, 还有一些, 像泰语, 甚至需要字形定位在前面字符的上面或下面.
+
+![Android hardware accelerated text rendering](/image/android_hardware_accelerated_text_rendering.png)
+
+
+
 
