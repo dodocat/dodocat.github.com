@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "android font rendering"
+title: "Android Font Rendering"
 summary:
 ---
 
