@@ -30,4 +30,16 @@ Android activities 近乎是 interface 和数据访问结合的部件给我们�
 
 对于一个能轻易扩展和维护的应用, 我们定义良好的分离层. 
 
+一个应用需要能够被轻易扩展和维护, 我们需要定义良好的分层, 设想一下以后会怎么样, 会不会从网络服务获取数据而不是直接从数据库读取.
+这样我们可能需要重做真个 View.
 
+MVP 让 views 独立于数据源.
+
+
+How to implement MVP for Android
+Well, this is where it all starts to become more diffuse. There are many variations of MVP and everyone can adjust the pattern idea to ​​their needs and the way they feel more comfortable. The pattern varies depending basically on the amount of responsibilities that we delegate to the presenter.
+Is the view responsible to enable or disable a progress bar, or should it be done by the presenter? And who decides which actions should be shown in the Action Bar? That’s where the tough decisions begin . I will show how I usually work, but I want this article to be more a place for discussion that strict guidelines on how to apply MVP, because up to know there is no “standard” way to implement it .
+
+
+## 如何在 Android 中实现 MVP
+好吧, 这里是问题扩展的地方, 有很多 MVP 的变种, 而且每个人根据自己的喜好和需要调整真个模式的思想.
