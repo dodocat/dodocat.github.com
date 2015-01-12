@@ -1,12 +1,13 @@
 ---
 layout: post
 title: "Android Circlar Porgress View Gmail on Android 5.0 style"
+comments : true
 summary:
 ---
 
 
 # A circular progressbar with sweeping angle
-![demo](image/circular_porgress_demo.gif)
+![demo](/image/circular_porgress_demo.gif)
 
 [Github](https://github.com/dodocat/CircularProgress)
 
