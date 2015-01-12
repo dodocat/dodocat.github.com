@@ -64,6 +64,8 @@ echo "---" >> $filename
 echo "layout: ${layout}" >> $filename
 echo "title: \"${title}\"" >> $filename
 echo "summary:" >> $filename
+echo "comments: true" >> $filename
+echo "categories: " >> $filename
 echo "---" >> $filename
 echo "" >> $filename
 
