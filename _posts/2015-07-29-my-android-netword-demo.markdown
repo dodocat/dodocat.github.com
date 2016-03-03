@@ -26,9 +26,9 @@ OkHttp 相较于其它的实现有以下的优点.
 
 1. 首先用 OkHttp 实现一个新的 `HurlStack` 用于构建 Volley 的 requestQueue.
 
-    ``` java
+``` java
 public class OkHttpStack extends HurlStack {
-
+    
     private OkHttpClient okHttpClient;
 
     /**
@@ -56,7 +56,7 @@ public class OkHttpStack extends HurlStack {
 
 1. 然后使用 OkHttpStack 创建新的 Volley requestQueue. 这样就行了.
 
-    ``` java
+``` java
 requestQueue = Volley.newRequestQueue(getContext(), new OkHttpStack());
 requestQueue.start();
 ```
@@ -81,16 +81,16 @@ OkHttp 自身是支持 Https 的. 参考文档 [OkHttp Https], 直接使用上�
 ## 实现步骤
 以最著名的自签名网站12306为例说明
 
-1. 导出证书
+* 导出证书
 
-   ``` sh
-    echo | openssl s_client -connect kyfw.12306.cn:443 2>&1 |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > kyfw.12306.cn.pem
-   ```
+``` sh
+echo | openssl s_client -connect kyfw.12306.cn:443 2>&1 |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > kyfw.12306.cn.pem
+```
 
-1. 将证书转为 bks 格式
+* 将证书转为 bks 格式
     下载最新的bcprov-jdk, 执行下面的命令. storepass 是导出密钥文件的密码.
 
-    ``` sh
+``` sh
 keytool -importcert -v \
     -trustcacerts \
     -alias 0 \
@@ -99,13 +99,13 @@ keytool -importcert -v \
     -providerclass org.bouncycastle.jce.provider.BouncyCastleProvider \
     -providerpath ./bcprov-jdk16-1.46.jar \
     -storepass asdfqaz
-    ```
+```
 
-1. 将导出的 kyfw.bks 文件放入 res/raw 文件夹下.
+* 将导出的 kyfw.bks 文件放入 res/raw 文件夹下.
 
-1. 创建 `SelfSignSslOkHttpStack`
+* 创建 `SelfSignSslOkHttpStack`
 
-    ``` java
+``` java
 /**
  * A HttpStack implement witch can verify specified self-signed certification.
  */
@@ -142,11 +142,11 @@ public class SelfSignSslOkHttpStack extends HurlStack {
         }
     }
 }
-    ```
+```
 
-1. 然后用 `SelfSignSslOkHttpStack` 创建 Volley 的 RequestQueue.
+* 然后用 `SelfSignSslOkHttpStack` 创建 Volley 的 RequestQueue.
 
-    ``` java
+``` java
     String[] hosts = {"kyfw.12306.cn"};
     int[] certRes = {R.raw.kyfw};
     String[] certPass = {"asdfqaz"};
@@ -163,26 +163,27 @@ public class SelfSignSslOkHttpStack extends HurlStack {
 
     requestQueue = Volley.newRequestQueue(context, stack);
     requestQueue.start();
-    ```
+```
 
-1. 我们来试一试, 用上一步穿件的 RequestQueue 替换掉原来的, 然后发请求试试.
-    ``` java
-        StringRequest request = new StringRequest(
-                Request.Method.GET,
-                "https://kyfw.12306.cn/otn/",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        responseContentTextView.setText(response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        responseContentTextView.setText(error.toString());
-                    }
-                });
-        RequestManager.getInstance(this).addRequest(request, this);
+* 我们来试一试, 用上一步穿件的 RequestQueue 替换掉原来的, 然后发请求试试.
+
+``` java
+StringRequest request = new StringRequest(
+    Request.Method.GET,
+    "https://kyfw.12306.cn/otn/",
+    new Response.Listener<String>() {
+        @Override
+        public void onResponse(String response) {
+            responseContentTextView.setText(response);
+        }
+    },
+    new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            responseContentTextView.setText(error.toString());
+        }
+    });
+RequestManager.getInstance(this).addRequest(request, this);
 ```
 
 1. done
