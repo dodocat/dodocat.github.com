@@ -54,15 +54,16 @@ public class OkHttpStack extends HurlStack {
 }
 ```
 
-1. 然后使用 OkHttpStack 创建新的 Volley requestQueue.
+1. 然后使用 OkHttpStack 创建新的 Volley requestQueue. 这样就行了.
+
     ``` java
 requestQueue = Volley.newRequestQueue(getContext(), new OkHttpStack());
 requestQueue.start();
 ```
-这样就行了.
 
 # 使用 Https
-作为一个有节操的开发者应该使用 Https 来保护用户的数据, Android 开发者网站上文章[Security with HTTPS and SSL]做了详尽的阐述.
+
+作为一个有节操的开发者应该使用 Https 来保护用户的数据, Android 开发者网站上文章 [Security with HTTPS and SSL] 做了详尽的阐述.
 
 OkHttp 自身是支持 Https 的. 参考文档 [OkHttp Https], 直接使用上面的 `OkHttpStack` 就可以了, 但是如果遇到服务器开发哥哥使用了自签名的证书(不要问我为什么要用自签名的), 就无法正常访问了.
 
@@ -81,13 +82,15 @@ OkHttp 自身是支持 Https 的. 参考文档 [OkHttp Https], 直接使用上�
 以最著名的自签名网站12306为例说明
 
 1. 导出证书
-   ```
+
+   ``` sh
     echo | openssl s_client -connect kyfw.12306.cn:443 2>&1 |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > kyfw.12306.cn.pem
    ```
 
 1. 将证书转为 bks 格式
     下载最新的bcprov-jdk, 执行下面的命令. storepass 是导出密钥文件的密码.
-    ```
+
+    ``` sh
 keytool -importcert -v \
     -trustcacerts \
     -alias 0 \
@@ -101,7 +104,8 @@ keytool -importcert -v \
 1. 将导出的 kyfw.bks 文件放入 res/raw 文件夹下.
 
 1. 创建 `SelfSignSslOkHttpStack`
-    ```
+
+    ``` java
 /**
  * A HttpStack implement witch can verify specified self-signed certification.
  */
@@ -142,7 +146,7 @@ public class SelfSignSslOkHttpStack extends HurlStack {
 
 1. 然后用 `SelfSignSslOkHttpStack` 创建 Volley 的 RequestQueue.
 
-    ```
+    ``` java
     String[] hosts = {"kyfw.12306.cn"};
     int[] certRes = {R.raw.kyfw};
     String[] certPass = {"asdfqaz"};
@@ -162,8 +166,7 @@ public class SelfSignSslOkHttpStack extends HurlStack {
     ```
 
 1. 我们来试一试, 用上一步穿件的 RequestQueue 替换掉原来的, 然后发请求试试.
-    ```
-
+    ``` java
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 "https://kyfw.12306.cn/otn/",
