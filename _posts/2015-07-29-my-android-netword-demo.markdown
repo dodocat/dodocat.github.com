@@ -24,7 +24,7 @@ OkHttp 相较于其它的实现有以下的优点.
 
 因此使用 OkHttp 作为替代是好的选择.
 
-1. 首先用 OkHttp 实现一个新的 `HurlStack` 用于构建 Volley 的 requestQueue.
+首先用 OkHttp 实现一个新的 `HurlStack` 用于构建 Volley 的 requestQueue.
 
 ``` java
 public class OkHttpStack extends HurlStack {
@@ -54,7 +54,7 @@ public class OkHttpStack extends HurlStack {
 }
 ```
 
-1. 然后使用 OkHttpStack 创建新的 Volley requestQueue. 这样就行了.
+然后使用 OkHttpStack 创建新的 Volley requestQueue. 这样就行了.
 
 ``` java
 requestQueue = Volley.newRequestQueue(getContext(), new OkHttpStack());
