@@ -1,40 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    {% include head.html %}
-  </head>
-  <body>
-    <div class="container azul">
-      <header class="top row gutters{% if page.title == "Home" %} fadeInLeft animated{% endif %}">
-        <div class="col span_2 center">
-          <a href="{{ site.url }}" id="logo" title="{{ site.data.brume.name }}"
-             style="background-image: url({{site.baseurl}}/public/images/logo.png);"></a>
-        </div>
-        {% include navigation.html %}
-      </header>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="shortcut icon" href="{{asset "images/favicon.png"}}">
+    <link href="assets/images/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="assets/images/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+    <link href="assets/images/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+    <link href="assets/images/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+    
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <link rel="author" href="https://plus.google.com/105790146178074084423/">
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 
-      {{ content }}
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+</head>
 
-      <footer>
-        <!-- google profile refer -->
-        {% if site.google_plus.id and site.google_plus.enable_search_refer == true %}
-            <p>
-                Author by <a href="https://plus.google.com/u/0/{{ site.google_plus.id }}/?rel=author">{{site.data.brume.author}}</a>
-            </p>
-        {% endif %}
-        <p>
-          This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.en_US">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
-        </p>
-      </footer>
-    </div>
+<body class="{{ page.layout }}-template  nav-closed">
 
-    <!-- scripts -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="{{site.baseurl}}/public/js/jquery.fitvids.js"></script>
+    {{ content }}
+
+    <footer class="site-footer clearfix ">
+        <section class="copyright "><a href="{{@blog.url}} ">{{ site.title}}</a> &copy; {{date format="YYYY "}}</section>
+        <section>
+          <a href="https://github.com/foru17/Yasuko">Theme Yasuko  </a> <a href="https://github.com/foru17/Yasuko" class="github-repo"><span class="gadget-github"></span>Star</a> Designed by <a href="https://luolei.org ">@罗磊</a>
+        </section>
+    </footer>
+
+    <script type="text/javascript" src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/js/base.js"></script>
+
     <script>
-      $(document).ready(function(){
-        $("article").fitVids();
-      });
+        (function(){
+            if (!window.addEventListener) return;
+            window.addEventListener('load', function(){
+                var performance = window.performance;
+                if (performance === undefined) return;
+                timing = window.performance.timing;
+                if (timing === undefined) return;
+                if (document.cookie.indexOf('statistics_clientid=') != -1) return;
+                var domain_lookup_time = timing.domainLookupEnd - timing.domainLookupStart;
+                var connect_time = timing.connectEnd - timing.connectStart;
+                var read_content_time = timing.responseEnd - timing.responseStart;
+                new Image().src = ('https:' == document.location.protocol ? 'https://' : 'http://')
+                    + 'stat.dnspod.cn/statistics/'
+                    + domain_lookup_time + "/"
+                    + connect_time + "/"
+                    + read_content_time + ".png";
+                var exdate=new Date();
+                exdate.setDate(exdate.getDate() + 1);
+                document.cookie="statistics_clientid=me"
+                + ";expires="+exdate.toGMTString();
+            }, false);
+        }());
     </script>
-  </body>
+</body>
 </html>
