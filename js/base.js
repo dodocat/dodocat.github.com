@@ -52,20 +52,6 @@ function loadJS(url, callback, el) {
     }
 };
 
-/**
- * Yasuko 配置文件
- * 多说评论调用等
- */
-
-var duoshuoQuery = {
-    short_name: "luolei"
-};
-
-var GlobalConfigue = {
-    duoshuoDomain: 'https://luolei.org',
-}
-
-
 var General = {
     isMobile: false,
     isWechat: false,
@@ -92,7 +78,6 @@ var General = {
         General.webFontLoader();
         General.scrollToPos();
         General.arrowEvent();
-        General.commentLoader();
     },
     updateImageWidth: function() {
         var $postContent = $(".post-content");
@@ -270,38 +255,7 @@ var General = {
                 $(this).addClass('active');
             }
         })
-
-
     },
-    commentLoader: function() {
-        if (!$('body').hasClass('post-template')) {
-            return false;
-        }
-        var dataThreadKey = GlobalConfigue.duoshuoDomain + location.pathname;
-        $(window).scroll(function() {
-            if ($('.comment-area').has('div').length > 0) {
-                return false
-            } else {
-                console.log('增加评论');
-                if (($('.author-image').isOnScreenVisible() || $('.read-next').isOnScreenVisible()) && $('.author-image').hasClass('duoshuo-loaded') == false) {
-                    $('.author-image').addClass('duoshuo-loaded');
-                    loadJS(General.absUrl + '/assets/js/duoshuo.modify.js', function() {
-                        var el = document.createElement('div');
-                        el.setAttribute('data-thread-key', dataThreadKey);
-                        el.setAttribute('data-url', location.href);
-                        el.setAttribute('data-title', $('title').html());
-                        DUOSHUO.EmbedThread(el);
-                        scrollStop = true;
-                        setTimeout(function() {
-                            $('.comment-area').append(el);
-                        }, 250)
-
-                    })
-                }
-            }
-
-        });
-    }
 }
 
 
@@ -698,8 +652,6 @@ $(document).ready(function() {
     ImageSmartLoader.init();
     if ($('body').hasClass('post-template')) {
         General.addIcons();
-        General.commentLoader();
-
     }
 
 })
