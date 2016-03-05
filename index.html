@@ -2,63 +2,88 @@
 layout: default
 title: Home
 ---
-<main id="main" class="content homepage" role="main">
-
-{% for post in paginator.posts %}
-{% if post.header-img %}
-<article class="post-in-list post">
-  <section class="post-excerpt">
-    <a href="{{ post.url }}">
-      <p><img data-url="{{ post.header-img }}" class="lazy" alt="cover" src="{{ post.header-img }}" style="display: block;"></p>
+<header id="header" data-url="{{ site.header-img}}"
+class="home-header blog-background banner-mask lazy {$ if site.header-img %}" style="background-image: url({{site.header-img}}){{else}}no-cover{{/if}}">
+  <div class="nav-header-container">
+    <a href="{{site.url}}" class="svg-logo">
+      <img src='/icon_qi.svg' style="width:3.4rem;height:3.4" viewport='0, 0, 256,256'/>
     </a>
-    <div class="info-mask">
-      <div class="mask-wrapper">
-        <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        <div class="post-meta">
-          <span class="post-time"><time datetime="{{ post.date }}">{{ post.date | date: '%B %d, %Y' }}</time></span>
-          <span class="post-tags">
-            {% for tag in post.tags %}
-            <a href="/tags/#{{ tag }}/" title="{{ tag }}">{{ tag }}</a>
-            {% endfor %}
-          </span>
+  </div>
+  <div class="header-wrap">
+  <div class="home-info-container">
+    <a href="{{ site.url }}"><h2>{{site.description}}</h2></a>
+    <h4>{{site.description-more}}</h4>
+  </div>
+  <div class="arrow_down" data-offset="-45">
+    <a href="javascript:;"></a>
+  </div>
+</header>
+
+<main id="main" class="content homepage" role="main" style="margin-top:2rem">
+  {% for post in paginator.posts %}
+  {% if post.header-img %}
+  <article class="post-in-list post">
+    <section class="post-excerpt">
+      <a href="{{ post.url }}">
+        <p><img data-url="{{ post.header-img }}" class="lazy" alt="cover" src="{{ post.header-img }}" style="display: block;"></p>
+      </a>
+      <div class="info-mask">
+        <div class="mask-wrapper">
+          <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+          <div class="post-meta">
+            <span class="post-time"><time datetime="{{ post.date }}">{{ post.date | date: '%B %d, %Y' }}</time></span>
+            <span class="post-tags">
+              {% for tag in post.tags %}
+              <a href="/tags/#{{ tag }}/" title="{{ tag }}">{{ tag }}</a>
+              {% endfor %}
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</article>
-{% else %}
-<div class="post-in-list-text">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title-text">
-            {{ post.title }}
-        </h2>
+    </section>
+  </article>
+  {% else %}
+  <article class="post-in-list post">
+    <section class="post-excerpt">
+      <!-- <div class="single-post-inner">{{ post.excerpt | strip_html | truncat: 200}}</div> -->
+
+      <a href="{{ post.url }}">
+        <p>
+          <span  alt="cover" style="display: block; height:20rem;background-color:#3e3e3e">
+                     <!-- {{ post.content | strip_html | truncate:200 }} -->
+          </span>
+        </p>
       </a>
-
-        <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
+      <div class="info-mask">
+        <div class="mask-wrapper">
+          <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+          <div class="post-meta">
+            <span class="post-time"><time datetime="{{ post.date }}">{{ post.date | date: '%B %d, %Y' }}</time></span>
+            <span class="post-tags">
+              {% for tag in post.tags %}
+              <a href="/tags/#{{ tag }}/" title="{{ tag }}">{{ tag }}</a>
+              {% endfor %}
+            </span>
+          </div>
         </div>
-    <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
-</div>
-<!-- <hr> -->
-{% endif %}
+      </div>
+    </section>
+  </article>
+  <!-- <hr> -->
+  {% endif %}
 
-{% endfor %}
+  {% endfor %}
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
+  <!-- Pager -->
+  {% if paginator.total_pages > 1 %}
+  <nav class="pagination" role='navigation'>
     {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
+    <a class="newer-posts" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><span aria-hidden="true">←</span> Newer Posts</a>
     {% endif %}
+    <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
     {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
+    <a class="older-posts" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts <span aria-hidden="true">→</span></a>
     {% endif %}
-</ul>
-{% endif %}
+  </nav>
+  {% endif %}
 </main>
