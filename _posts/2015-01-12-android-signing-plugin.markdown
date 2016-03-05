@@ -4,7 +4,7 @@ title: "Android Signing Plugin"
 summary:
 comments: true
 categories: Android
-header-img: https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg
+cover: https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg
 ---
 
 # Android Signing Automatic Config

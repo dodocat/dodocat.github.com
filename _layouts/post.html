@@ -3,7 +3,7 @@ layout: default
 ---
 <header id="header"
   class="home-header blog-background banner-mask lazy"
-  data-url="{% if page.header-img %}{{ page.header-img }}{% else %}https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg{% endif %}"
+  data-url="{% if page.cover %}{{ page.cover }}{% else %}https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg{% endif %}"
   style="background-image:no-cover">
 
   <div class="nav-header">
@@ -83,8 +83,8 @@ layout: default
   <aside class="read-next">
 
   {% if page.next %}
-  {% if page.next.header-img %}
-  <a class="read-next-story lazy" data-url="{{page.next.header-img}}" style="background-image: page.next.header-img " href="{{ page.next.url }}">
+  {% if page.next.cover %}
+  <a class="read-next-story lazy" data-url="{{page.next.cover}}" style="background-image: page.next.cover " href="{{ page.next.url }}">
   {% else %}
   <a class="read-next-story no-cover" href="{{ page.next.url }}">
   {% endif %}
@@ -96,8 +96,8 @@ layout: default
   {% endif %}
 
   {% if page.previous %}
-  {% if page.previous.header-img %}
-  <a class="read-next-story pre lazy" data-url="{{ page.next.header-img }}" style="background-image: page.previous.header-img " href="{{ page.previous.url }}">
+  {% if page.previous.cover %}
+  <a class="read-next-story pre lazy" data-url="{{ page.next.cover }}" style="background-image: page.previous.cover " href="{{ page.previous.url }}">
   {% else %}
   <a class="read-next-story pre no-cover" href="{{ page.previous.url }}">
   {% endif %}
@@ -117,7 +117,7 @@ layout: default
       data-thread-key="{{page.id}}"
       data-title="{{page.title}}"
       data-url="{{site.url}}{{site.baseurl}}{{page.url}}"
-      data-images="{{ site.url }}{{site.baseurl}}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}"
+      data-images="{{ site.url }}{{site.baseurl}}/{% if page.cover %}{{ page.cover }}{% else %}{{ site.cover }}{% endif %}"
       data-content="{{ content | strip_html | truncate:80 }} | {{ site.SEOTitle }} " >
       <div class="ds-share-inline">
         <ul  class="ds-share-icons-16">

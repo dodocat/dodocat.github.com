@@ -2,8 +2,7 @@
 layout: default
 title: Home
 ---
-<header id="header" data-url="{{ site.header-img}}"
-class="home-header blog-background banner-mask lazy {$ if site.header-img %}" style="background-image: url({{site.header-img}}){{else}}no-cover{{/if}}">
+<header id="header" data-url="{{ site.cover }}" class="home-header blog-background banner-mask lazy {% if site.cover %}" style="background-image: url({{ site.cover }}){% else %}no-cover{% endif %}">
   <div class="nav-header-container">
     <a href="{{site.url}}" class="svg-logo">
       <img src='/icon_qi.svg' style="width:3.4rem;height:3.4" viewport='0, 0, 256,256'/>
@@ -12,7 +11,7 @@ class="home-header blog-background banner-mask lazy {$ if site.header-img %}" st
   <div class="header-wrap">
   <div class="home-info-container">
     <a href="{{ site.url }}"><h2>{{site.description}}</h2></a>
-    <h4>{{site.description-more}}</h4>
+    <h4>{{ site.description-more }}</h4>
   </div>
   <div class="arrow_down" data-offset="-45">
     <a href="javascript:;"></a>
