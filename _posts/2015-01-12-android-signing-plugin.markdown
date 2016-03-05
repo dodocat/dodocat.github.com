@@ -3,7 +3,8 @@ layout: post
 title: "Android Signing Plugin"
 summary:
 comments: true
-categories: Android 
+categories: Android
+header-img: https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg
 ---
 
 # Android Signing Automatic Config

@@ -1,18 +1,139 @@
 ---
 layout: default
 ---
+<header id="header"
+  class="home-header blog-background banner-mask lazy"
+  data-url="{% if page.header-img %}{{ page.header-img }}{% else %}https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg{% endif %}"
+  style="background-image:no-cover">
 
-<article class="single row gutters">
-  <time class="published" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date_to_long_string }}</time>
-  <h2>{{ page.title }}</h2>
+  <div class="nav-header">
+    <div class="nav-header-container">
+      <a href="{{@site.url}}" class="back-home">Home</a>
+    </div>
+  </div>
 
-  {{ content }}
+  <div class="header-wrap">
+    <div class="post-info-container">
+      <h2 class="post-page-title ">{{page.title}}</h2>
+      <time class="post-page-time">{{date format="DD MMMM YYYY"}}</time>
+      <span class="post-page-author">{{#author}}{{name}}{{/author}}</span>
+      <span class="post-page-tags">{{tags prefix="" separator=" "}}</span>
+    </div>
+  </div>
 
-  {% if site.duoshuo.short_name and page.comments == true %}
-  <section>
-    <h1>Comments</h1>
-    <div id="comments" aria-live="polite">{% include duoshuo.html %}</div>
+  <div class="arrow_down">
+    <a href="javascript:;"></a>
+  </div>
+</header>
+
+<main class="content" id="main" role="main">
+
+  <article class="{{page.layout}}">
+
+    <section class="post-content">
+      <div class="single-post-inner">
+        {{content}}
+        <div class="tag-box">
+          {{tags prefix="" separator=" "}}
+        </div>
+        <div class="money-like" id="like-money">
+          <div class="reward-button">赏
+            <span class="money-code">
+              <span class="alipay-code">
+                <a href="javascript:;">
+                  <img data-url="{{asset "images/qr-alipay-256.png"}}" class="alipay-img" src="data:image/gif;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAsAAAABBxAREYiI/gcAAABWUDggGAAAADABAJ0BKgEAAQABABwlpAADcAD+/gbQAA=="><b>支付宝扫码打赏</b>
+                </a>
+              </span>
+              <span class="wechat-code">
+                <img data-url="{{asset "images/qr-wechat-256.png"}}" class="wechat-img" src="data:image/gif;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAsAAAABBxAREYiI/gcAAABWUDggGAAAADABAJ0BKgEAAQABABwlpAADcAD+/gbQAA=="><b>微信打赏</b>
+              </span>
+            </span>
+          </div>
+          <p class="money-notice">若你觉得我的文章对你有帮助,欢迎点击上方按钮对我打赏</p>
+        </div>
+        <div class="qr-code">
+          <img src="https://encrypt.proxy.is26.com/qr/download/qr?content={{site.url}}{{ site.baseurl }}{{ page.url }}" alt="">
+          <p>扫描二维码,分享此文章</p>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <section class="share">
+    <div class="share-icons" id="share-icons">
+      <a class="icon-share" href="http://weibo.com/foru17/">
+        <span class=""><i class="iconfont iconfont-weibo">&#xe607;</i></span>
+      </a>
+
+      <a class="icon-share" href="https://twitter.com/foru17">
+        <span class=""><i class="iconfont iconfont-twitter">&#xe604;</i></span>
+      </a>
+      <a class="icon-share" href="https://www.instagram.com/foru17/">
+        <span class=""><i class="iconfont  iconfont-instagram">&#xe603;</i></span>
+      </a>
+      <a class="icon-share icon-github" href="https://github.com/foru17">
+        <span class=""><i class="iconfont  iconfont-github">&#xe60d;</i></span>
+      </a>
+      <a class="icon-share icon-weibo" href="https://www.zhihu.com/people/luolei">
+        <span class=""><i class="iconfont  iconfont-zhihu">&#xe609;</i></span>
+      </a>
+    </div>
   </section>
+
+  <aside class="read-next">
+
+  {% if page.next %}
+  {% if page.next.header-img %}
+  <a class="read-next-story lazy" data-url="{{page.next.header-img}}" style="background-image: page.next.header-img " href="{page.next.url}">
+  {% else %}
+  <a class="read-next-story no-cover" href="{{ page.next.url }}">
+  {% endif %}
+    <section class="post">
+    <h2>{{ page.next.title }}</h2>
+      <p>{{ page.next.excerpt | markdownify }}&hellip;</p>
+    </section>
+  </a>
   {% endif %}
 
-</article>
+  {% if page.previous %}
+  {% if page.previous.header-img %}
+  <a class="read-next-story pre lazy" data-url="{{page.next.header-img}}" style="background-image: page.previous.header-img " href="{page.previous.url}">
+  {% else %}
+  <a class="read-next-story pre no-cover" href="{{ page.previous.url }}">
+  {% endif %}
+    <section class="post">
+      <h2>{{ page.previous.title }}</h2>
+      <p>{{ page.previous.excerpt | strip_html }}&hellip;</p>
+    </section>
+  </a>
+  {% endif %}
+  </aside>
+
+  {% if site.duoshuo_share && site.duoshuo_username %}
+  <!-- 多说 Share start -->
+  </style>
+  <div class="ds-share"
+      style="text-align: right"
+      data-thread-key="{{page.id}}"
+      data-title="{{page.title}}"
+      data-url="{{site.url}}{{site.baseurl}}{{page.url}}"
+      data-images="{{ site.url }}{{site.baseurl}}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}"
+      data-content="{{ content | strip_html | truncate:80 }} | {{ site.SEOTitle }} " >
+      <div class="ds-share-inline">
+        <ul  class="ds-share-icons-16">
+          <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+          <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+          <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+          <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+        </ul>
+        <div class="ds-share-icons-more">
+        </div>
+      </div>
+  <hr>
+  </div>
+  <!-- 多说 Share end-->
+  {% endif %}
+
+  </section>
+</main>
+<script type="text/javascript" src="{{asset " js/prism.js "}}"></script>
