@@ -12,7 +12,7 @@ baseurl: ""
 permalink: /:year/:month/:day/:title
 
 duoshuo :
-    short_name : quanqi
+    user-name : quanqi
     enable : true
 
 google_plus :

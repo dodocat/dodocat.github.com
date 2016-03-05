@@ -13,7 +13,9 @@
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
-    <link rel="author" href="https://plus.google.com/105790146178074084423/">
+    {% if site.google.enable_search_refer %}
+    <link rel="author" href="https://plus.google.com/{{ site.google_plus.id }}">
+    {% endif %}
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
