@@ -84,20 +84,20 @@ layout: default
 
   {% if page.next %}
   {% if page.next.header-img %}
-  <a class="read-next-story lazy" data-url="{{page.next.header-img}}" style="background-image: page.next.header-img " href="{page.next.url}">
+  <a class="read-next-story lazy" data-url="{{page.next.header-img}}" style="background-image: page.next.header-img " href="{{ page.next.url }}">
   {% else %}
   <a class="read-next-story no-cover" href="{{ page.next.url }}">
   {% endif %}
     <section class="post">
     <h2>{{ page.next.title }}</h2>
-      <p>{{ page.next.excerpt | markdownify }}&hellip;</p>
+      <p>{{ page.next.excerpt | strip_html }}&hellip;</p>
     </section>
   </a>
   {% endif %}
 
   {% if page.previous %}
   {% if page.previous.header-img %}
-  <a class="read-next-story pre lazy" data-url="{{page.next.header-img}}" style="background-image: page.previous.header-img " href="{page.previous.url}">
+  <a class="read-next-story pre lazy" data-url="{{ page.next.header-img }}" style="background-image: page.previous.header-img " href="{{ page.previous.url }}">
   {% else %}
   <a class="read-next-story pre no-cover" href="{{ page.previous.url }}">
   {% endif %}
