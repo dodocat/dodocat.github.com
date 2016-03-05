@@ -3,7 +3,6 @@ layout: post
 title: Android Volley 实践
 date: 2014-03-12 19:46
 comments: true
-categories: Android
 tags: android volley
 ---
 

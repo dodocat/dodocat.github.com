@@ -3,7 +3,6 @@ layout: post
 title: "基于P2P 的 RSS 阅读器"
 date: 2013-03-22 18:35
 comments: true
-categories: 胡思乱想  
 ---
 Google Reader 就要被亲娘杀死了。我并不打算寻找替代品了。一是迁移成本太高，二是似乎也没有能够完全满足使用 Greader的时候需求的产品。
 
@@ -23,4 +22,3 @@ Google Reader 就要被亲娘杀死了。我并不打算寻找替代品了。一
 或许分布式的 P2P 正是出路。
 
 ** to be continued**
-

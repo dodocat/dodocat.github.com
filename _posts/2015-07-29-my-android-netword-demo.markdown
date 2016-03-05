@@ -3,7 +3,6 @@ layout: post
 title: "Android 网络--我是怎么做的: Volley+OkHttp+Https"
 summary:
 comments: true
-categories: Android
 ---
 
 > Volley 已经发布很长时间了, 也已被广泛应用, 相关教程到处都是. 本文只说两个值得注意的地方.
@@ -28,7 +27,7 @@ OkHttp 相较于其它的实现有以下的优点.
 
 ``` java
 public class OkHttpStack extends HurlStack {
-    
+
     private OkHttpClient okHttpClient;
 
     /**
