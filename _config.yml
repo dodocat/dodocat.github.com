@@ -19,6 +19,10 @@ google_plus :
     id : 101733574037044507534
     enable_search_refer : true
 
+author-link:
+  weibo: jingqq5210
+  github: dodocat
+  zhihu: dodocat
 # SNS settings
 #RSS: false
 weibo_username:     jingqq5210
