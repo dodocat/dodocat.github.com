@@ -3,6 +3,7 @@ layout: post
 title: "Git 分支模型实践--解决分支线性的问题"
 summary:
 comments: true
+cover: /image/git-branch.png
 ---
 
 # 0. Origin
@@ -17,10 +18,11 @@ comments: true
 
 在我的实践过程中, 确定了以下关键原则.
 * Git 仓库是分布式, 无中心的.
-* 但是希望我们的分支模型里, **同一个**分支是有中心保持线性的.
+* 但是希望我们的分支模型里, **同一个** 分支是有中心保持线性的.
 * develop 分支的提交粒度是该特性.
 
 拥有了利器, 我们开始工作了:
+
 ``` bash
 git init
 git checkout -b develop
@@ -30,7 +32,9 @@ git commit -m "┬─┬ ノ( ' - 'ノ)"
 git checkout develop
 git merge feature1 --no-ff
 ```
+
 此时我们的分支大概长成这样
+
 ```
 *   89c7380 - (HEAD, develop) Merge branch 'contents' into develop (36 seconds ago)
 |\
@@ -41,6 +45,7 @@ git merge feature1 --no-ff
 ```
 
 再复杂一点
+
 ```
 #初始化
 git init
@@ -63,7 +68,9 @@ git commit
 git checkout develop
 git merge --no-ff content
 ```
+
 此时我们的分支长成这样
+
 ```
 *   316e0ca - (HEAD, develop) Merge branch 'another' into develop (25 seconds ago)
 |\
@@ -82,6 +89,7 @@ git merge --no-ff content
 |/
 * 43bf08a - (master) scanner online (10 minutes ago)
 ```
+
 完美符合理想的分支模型. 并且保留了并行开发的记录.
 
 这个时候我们加入了另外一个小伙伴. 分别在各自的按照这个流程工作.
@@ -89,6 +97,7 @@ git merge --no-ff content
 `Merge branch 'develop' of <REMOTE> into develop`
 此时我们的 develop 分支不再是一条直线. 而且产生了一个无意义的合并节点. 破坏了 develop 分支以特性为粒度按照代码提交时间排序的目标原则.
 这时候需要`rebase`.  但是直接执行 `git pull --rebase` 会删除刚才特性分支合并入 develop 分支的节点.  像这样
+
 ```
 A
 | \
@@ -100,7 +109,9 @@ D  F
 | /
 E
 ```
+
 `git pull --rebase` 后
+
 ```
 H
 |
@@ -118,12 +129,16 @@ D
 |
 E
 ```
+
 想要保留节点就要加入 `preserve` 参数.
+
 ```
 git fetch origin
 git rebase origin/develop --preserve-merges
 ```
+
 或者
+
 ```
 git config pull.rebase preserve
 git pull
@@ -139,8 +154,7 @@ git pull
 * [Git flow]
 * [5.1 分布式 Git - 分布式工作流程]
 * [Learn Git Branching]
-*
-[Make git pull --rebase preserve merge commits]:
+* [Make git pull --rebase preserve merge commits]
 
 [A successful Git branching model]:http://nvie.com/posts/a-successful-git-branching-model/
 [Git flow]:https://github.com/nvie/gitflow
