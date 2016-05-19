@@ -3,7 +3,6 @@ layout: post
 title: "Constraint 代码实验室--带你一步步理解使用 ConstraintLayout"
 summary:
 comments: true
-tags: andnroid
 ---
 
 ## 说明
@@ -12,7 +11,7 @@ Google I/O 2016 上发布了 `ConstraintLayout`, 简直是要变革 Android 写�
 
 本文涉及到一些词汇对照表:
 
-|               |               |
+|        EN       |   CN            |
 | ------------- |:-------------:|
 | Constraint | 约束 |
 | Constraint Handle | 约束手柄  |
