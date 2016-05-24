@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: 荆全齐简历
 date: 2014-08-10
+
 ---
 
 # 荆全齐简历
@@ -12,7 +13,6 @@ Name: 荆全齐
 
 Email: jing@quanqi.org
 
-Mobile: 18520158771
 
 Github:[dodocat](https://github.com/dodocat)
 
